@@ -7,6 +7,8 @@ if (require.getModules) {
     generateSecureRandom = require('react-native-securerandom').generateSecureRandom;
   } else if (NativeUnimoduleProxy && NativeUnimoduleProxy.exportedMethods.ExpoRandom) {
     generateSecureRandom = require('expo-random').getRandomBytesAsync;
+  } else {
+    generateSecureRandom = require("expo-crypto").getRandomBytesAsync;
   }
 }
 
